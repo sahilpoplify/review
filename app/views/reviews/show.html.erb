@@ -1,0 +1,15 @@
+<h1><%= @review.review_about %></h1>
+<p><%= @review.review_body %></p>
+<p>Posted at <%= @review.created_at %></p>
+
+
+<h3>Comments (<%= @review.comments.size %>)</h3>
+<%= render partial: 'reviews/comment', collection: @review.comments %>
+
+<%= render partial: 'comments/form' %>
+
+
+
+
+   <%= link_to "edit review" , edit_review_path(@review) %><br/>
+   <%= link_to "<< All reviews", reviews_path %>

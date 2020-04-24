@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyReview</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+          <div id = "user_nav">
+            <% if user_signed_in? %>
+            Logged in as<strong> <%= current_user.email %> </strong>
+            <%= link_to 'Edit profile', edit_user_registration_path  %> |
+            <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path %> |
+            <%= link_to 'Sign up', new_user_registration_path %>
+          </div>
+          <% end %>
+
+
+
+  <p class="flash"><%= flash.notice %></p>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<h1>Reviews</h1>
+
+<h3> Total reviews: <%=  @total_reviews %> </h3>
+
+<ul id="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <%= link_to review.review_about, review_path(review) %><br/>
+      <%= review.review_body %>
+
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Post review", new_review_path %>

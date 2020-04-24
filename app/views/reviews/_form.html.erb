@@ -1,0 +1,22 @@
+<%= form_for(@review) do |f| %>
+  <ul>
+  <% @review.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :review_about, "Name of movie" %><br />
+    <%= f.text_field :review_about %>
+  </p>
+  <p>
+    <%= f.label :review_body, "review about movie" %><br />
+    <%= f.text_area :review_body %>
+  </p>
+  
+  
+<%= f.hidden_field :user_id, :value => current_user.id %> 
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
